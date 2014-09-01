@@ -22,9 +22,9 @@ There are some very rough mockups of the two screens available at
     
 You certainly don’t have to be pixel-perfect to those mockups - feel free to change the colors if you like, or make small changes, but please make sure the right elements are in the right places relative to each other.
 
-For the Jobcoin sending interface, please allow the user to **Click on two places inside the sentence, on the number of Jobcoins or on the destination address, to turn either of those fields into a textbox.**  When the **user clicks away or presses Send, it should turn back into a sentence**.  To “hint” the user that the two fields are clickable, please **show a border around the number or around the destination address when the mouse is within 30px of the respective clickable area.**
+For the Jobcoin sending interface, please allow the user to Click on two places inside the sentence, on the number of Jobcoins or on the destination address, to turn either of those fields into a textbox. When the user clicks away or presses Send, it should turn back into a sentence.  To “hint” the user that the two fields are clickable, please show a border around the number or around the destination address when the mouse is within 30px of the respective clickable area.
 
-You’re welcome to implement the line chart of account balance over time however you’d like - its look and feel is up to you.  **Make sure it updates when a new transaction is made.**
+You’re welcome to implement the line chart of account balance over time however you’d like - its look and feel is up to you.  Make sure it updates when a new transaction is made.
 
 Please use any framework, libraries, or tools that you think are appropriate to solve the problem.  And don’t hesitate to ask any questions.
 
