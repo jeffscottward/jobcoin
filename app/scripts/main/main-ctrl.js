@@ -89,6 +89,11 @@ app.controller('MainCtrl', // Controller
              toAddress: jobcoinOutputAddress,
              amount: jobcoinInputAmount
            });
+
+           // Reset fields on succesfully sending
+           $scope.jobcoinInputAmountUI = false;
+           $scope.jobcoinOutputAddressUI = false;
+
       } else {
            alert('Please enter a positive number of Jobcoins and a User');
       }
