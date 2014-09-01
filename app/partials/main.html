@@ -1,0 +1,139 @@
+<div class="container" ng-controller="MainCtrl">
+
+  <header>
+    <div class="row">
+      <div class="col-lg-6">
+        <h1>Jobcoin</h1>
+        <h4>The Currency of the Future</h4>
+      </div>
+      <div class="col-lg-6">
+        <a class="btn btn-lg btn-info pull-right" ng-href="#" ng-show="appState === 'welcome'" ng-click="signIn(jobcoinInputAddress);">Sign In</a>
+        <a class="btn btn-lg btn-info pull-right" ng-href="#" ng-show="appState === 'loggedIn'" ng-click="signOut()">Sign Out {{jobcoinInputAddress}}</a>
+      </div>
+    </div>
+    <hr/>
+  </header>
+
+  <div ng-show="appState === 'welcome'">
+    <div class="bs-component">
+      <div class="modal">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <h4 class="modal-title wv-modal-title">
+              <span>Welcome</span>
+            </h4>
+            <div class="modal-body">
+              <p>Enter your Jobcoin address:</p>
+              <div class="form-group">
+                <label class="control-label"></label>
+                <input type="text" class="form-control pull-left wv-input-80" id="jobcoinInputAddress" ng-model="jobcoinInputAddress">
+                <button type="button" class="btn btn-primary pull-right wv-input-15" ng-click="signIn(jobcoinInputAddress)">Sign In</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div ng-show="appState === 'loggedIn'"> 
+    
+    <div class="bs-component">
+      <div class="modal">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            
+            <h4 class="modal-title wv-modal-title">
+              <span>Hello {{jobcoinInputAddress}}</span>
+            </h4>
+
+            <div class="modal-body wv-modal-body">
+              <div class="form-group">
+                <label class="control-label"></label>
+
+                <p class="col-md-8">
+
+                  <span>I would like to send</span>
+
+                  <span ng-click="togglejobcoinUI('amount')" 
+                        ng-hide="jobcoinInputAmountUI"
+                        class="wv-toggle-link"
+                        id="jobcoinInputAmountText">
+                        {{jobcoinInputAmount}}</span>
+
+                  <input type="number"
+                         ng-show="jobcoinInputAmountUI"
+                         ng-focus="jobcoinInputAmountUI"
+                         ng-blur="togglejobcoinUI('amount')"
+                         ng-model="jobcoinInputAmount" 
+                         class="form-control wv-input-inline wv-coin-output" 
+                         name="jobcoinInputAmount"
+                         min="0"
+                         required
+                         id="jobcoinInputAmount"/>
+
+                  <span>Jobcoins to </span>
+
+                  <span ng-click="togglejobcoinUI('address')" 
+                        ng-hide="jobcoinOutputAddressUI"
+                        class="wv-toggle-link"
+                        id="jobcoinOutputAddressText">
+                        {{jobcoinOutputAddress}}</span>
+
+                  <input type="text"
+                         ng-show="jobcoinOutputAddressUI"
+                         ng-focus="jobcoinOutputAddressUI"
+                         ng-blur="togglejobcoinUI('address')"
+                         ng-model="jobcoinOutputAddress"
+                         class="form-control wv-input-inline wv-address-output"
+                         name="jobcoinOutputAddress"
+                         required 
+                         id="jobcoinOutputAddress"/>
+
+                  <!-- CSS HACKERY FOR HEIGHT -->
+                  <input type="text" class="form-control wv-input-inline wv-address-output" style="width: 1px; opacity: 0;"/>
+                  <!-- END ___ CSS HACKERY FOR HEIGHT -->
+                </p>
+
+                <button type="button" class="btn btn-primary pull-right wv-input-15" ng-click="sendCoins(jobcoinInputAmount, jobcoinInputAddress, jobcoinOutputAddress)">Send</button>
+
+              </div>
+            </div>
+          
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="bs-component">
+      <div class="modal">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <h4 class="modal-title wv-modal-title"><span>History</span></h4>
+            <div class="modal-body">
+                <nvd3-stacked-area-chart
+                  data="chartData"
+                  width="900"
+                  height="350"
+                  showXAxis="true"
+                  showYAxis="true"
+                  xAxisTickFormat="xAxisFormatFunction()"
+                  yAxisTickFormat="yAxisFormatFunction()"
+                  class="wv-chart">
+              </nvd3-stacked-area-chart>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer">
+    <hr>
+    <p>
+      <div>Made by Jeff Ward <a href="https://twitter.com/jeffscottward">@jeffscottward</a></div>
+      <div>This code has no license and may not be copied or used in any way by anyone other than the author.</div>
+    </p>
+  </div>
+
+</div>
