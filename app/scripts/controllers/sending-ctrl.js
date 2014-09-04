@@ -14,6 +14,8 @@ app.controller('SendingCtrl', // Controller
     // // SCOPE DATA & STATES
     // ////////////////////////
 
+    $scope.jobcoinInputAddress = addressService.getAddress();
+
     $scope.jobcoinInputAmount   = 0;       // Coin Amount
     $scope.jobcoinOutputAddress = 'Cindy'; // Destination Address
     

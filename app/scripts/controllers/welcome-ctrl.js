@@ -7,17 +7,8 @@ var app = angular.module('jobcoin'); // Application
 ////////////////////////
 
 app.controller('WelcomeCtrl', // Controller
-  ['$scope', 'addressService', '$state', // Controller -- Dependencies
-  function ($scope, addressService, $state)  { // Controller -- Namespaces
-
-    ////////////////////////
-    // SCOPE DATA & STATES
-    ////////////////////////
-    
-    if($state.params.jobcoinInputAddress !== undefined){
-        addressService.address = $stateParams.jobcoinInputAddress;
-        $scope.jobcoinInputAddress = $state.params.jobcoinInputAddress;
-    }
+  ['$scope', 'addressService', '$state', '$rootScope', // Controller -- Dependencies
+  function ($scope, addressService, $state, $rootScope)  { // Controller -- Namespaces
     
     ////////////////////////
     // SCOPE FUNCTIONS
@@ -26,21 +17,13 @@ app.controller('WelcomeCtrl', // Controller
     // Sign In - UI Action
     $scope.signIn = function(jobcoinInputAddress){
 
-      // Validate Address 
-      if ( addressService.checkAddress(jobcoinInputAddress) ){
-
-        // Assign user and state
-        addressService.address = jobcoinInputAddress;
-        $scope.jobcoinInputAddress = jobcoinInputAddress;
-        $state.go('root.loggedIn', { jobcoinInputAddress: jobcoinInputAddress });
-      }
-    };
-
-    // Sign Out - UI Action
-    $scope.signOut = function(){
-
-      $scope.jobcoinInputAddress = '';
-      $state.go('root.welcome', { jobcoinInputAddress: '' });
+        if( addressService.checkAddress(jobcoinInputAddress) ){
+            addressService.setAddress(jobcoinInputAddress);
+            $rootScope.$broadcast('someEvent', jobcoinInputAddress);
+            $state.go('root.loggedIn', { jobcoinInputAddress: jobcoinInputAddress });
+        } else {
+            alert('Please enter a proper name');
+        }
     };
   
 }]);

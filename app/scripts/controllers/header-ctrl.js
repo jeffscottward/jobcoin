@@ -6,30 +6,26 @@ var app = angular.module('jobcoin'); // Application
 // CONTROLLER
 ////////////////////////
 
-app.controller('LoginCtrl', // Controller
-  ['$scope', '$rootScope', 'addressService', '$state', '$stateParams',// Controller -- Dependencies
+app.controller('HeaderCtrl', // Controller
+  ['$scope', '$rootScope', 'addressService', '$state', '$stateParams', // Controller -- Dependencies
   function ($scope, $rootScope, addressService, $state, $stateParams)  { // Controller -- Namespaces
 
     ////////////////////////
     // SCOPE DATA & STATES
     ////////////////////////
 
-    // $rootScope.$on("inputAddrChange", function(obj){
-    //     console.dir(obj.address);
-    //     $scope.jobcoinInputAddress = obj.address;
-    // });
+    $rootScope.$on("someEvent", function(event, obj){
+        $scope.jobcoinInputAddress = obj;
+    });
 
     $scope.setAddr = function(address){
         
         // If there is a state param
         if($state.params.jobcoinInputAddress !== undefined){
             $scope.jobcoinInputAddress = $state.params.jobcoinInputAddress;
-            // console.log('$state.params.jobcoinInputAddress: ' + $state.params.jobcoinInputAddress);
-            // console.log('$scope.jobcoinInputAddress: ' + $scope.jobcoinInputAddress);
+            addressService.setAddress($state.params.jobcoinInputAddress);
         } else { // If there is NO state param
             $scope.jobcoinInputAddress = address;
-            // console.log('$state.params.jobcoinInputAddress: ' + $state.params.jobcoinInputAddress);
-            // console.log('$scope.jobcoinInputAddress: ' + $scope.jobcoinInputAddress);
         }
     }
 
@@ -43,8 +39,8 @@ app.controller('LoginCtrl', // Controller
     $scope.signIn = function(jobcoinInputAddress){
 
         if( addressService.checkAddress(jobcoinInputAddress) ){
+            addressService.setAddress(jobcoinInputAddress);
             $scope.jobcoinInputAddress = jobcoinInputAddress;
-            // $rootScope.$emit('inputAddrChange',{ address: jobcoinInputAddress });
             $state.go('root.loggedIn', { jobcoinInputAddress: jobcoinInputAddress });
         } else {
             alert('Please enter a proper name');

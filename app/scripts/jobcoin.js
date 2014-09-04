@@ -10,7 +10,7 @@ angular.module('jobcoin',
         views: {
           'header': {
             templateUrl: 'partials/header.html',
-            controller: 'LoginCtrl'
+            controller: 'HeaderCtrl'
           },
           'footer':{
             templateUrl: 'partials/footer.html'
@@ -22,7 +22,7 @@ angular.module('jobcoin',
         views: {
           'container@': {
             templateUrl: 'partials/welcome-panel.html',
-            controller: 'LoginCtrl'
+            controller: 'WelcomeCtrl'
           }
         }
       })
@@ -37,19 +37,15 @@ angular.module('jobcoin',
             controller: 'SendingCtrl'
           },
           'chartView@root.loggedIn': {
-            templateUrl: 'partials/line-chart.html',
+            templateUrl: 'partials/chart.html',
             resolve: {
                promiseObj: function($rootScope, $http, $stateParams, addressService){
-                  return $http({
-                    method: 'GET',
-                    url: 'http://jobcoin.projecticeland.net/upspurt/api/addresses/' + $stateParams.jobcoinInputAddress
-                  });
-               }        
+                  return addressService.getAddressData($stateParams.jobcoinInputAddress);
+               }
             },
             controller: 'ChartCtrl'
           }
         }
       });
-
     $urlRouterProvider.otherwise('/');
   });

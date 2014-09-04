@@ -47,8 +47,8 @@ app.controller('ChartCtrl', // Controller
       
       // NVD3 won't play nice with these even after formatting
       // in setMappedData, would require more digging
-      timeStampTimeline.push(transactions[i]['timestamp']);  
-      // timeStampTimeline.push(i); // Lets use a simple increment instead
+      // timeStampTimeline.push(transactions[i]['timestamp']);  
+      timeStampTimeline.push(i); // Lets use a simple increment instead
     };
 
     // Format the dates
