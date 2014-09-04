@@ -7,8 +7,8 @@ var app = angular.module('jobcoin'); // Application
 ////////////////////////
 
 app.controller('SendingCtrl', // Controller
-  ['$scope', '$state', 'addressService', 'coinService', // Controller -- Dependencies
-  function ($scope, $state, addressService, coinService)  { // Controller -- Namespaces
+  ['$rootScope','$scope', '$state', 'addressService', 'coinService', '$stateParams', // Controller -- Dependencies
+  function ($rootScope, $scope, $state, addressService, coinService, $stateParams)  { // Controller -- Namespaces
 
     // ////////////////////////
     // // SCOPE DATA & STATES
@@ -34,7 +34,7 @@ app.controller('SendingCtrl', // Controller
       if ( coinService.checkCointCount(jobcoinInputAmount)  && 
            addressService.checkAddress(jobcoinOutputAddress) ){
            
-           alert('Sending ' + jobcoinInputAmount + ' Jobcoins ' + 'from ' + jobcoinInputAddress + ' to ' + jobcoinOutputAddress);
+           // alert('Sending ' + jobcoinInputAmount + ' Jobcoins ' + 'from ' + jobcoinInputAddress + ' to ' + jobcoinOutputAddress);
 
            // Send coins
            coinService.sendCoins({

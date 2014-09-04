@@ -19,7 +19,7 @@ app.controller('WelcomeCtrl', // Controller
 
         if( addressService.checkAddress(jobcoinInputAddress) ){
             addressService.setAddress(jobcoinInputAddress);
-            $rootScope.$broadcast('someEvent', jobcoinInputAddress);
+            $rootScope.$broadcast('loginEvent', jobcoinInputAddress);
             $state.go('root.loggedIn', { jobcoinInputAddress: jobcoinInputAddress });
         } else {
             alert('Please enter a proper name');

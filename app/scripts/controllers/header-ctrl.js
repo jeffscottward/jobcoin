@@ -14,7 +14,7 @@ app.controller('HeaderCtrl', // Controller
     // SCOPE DATA & STATES
     ////////////////////////
 
-    $rootScope.$on("someEvent", function(event, obj){
+    $rootScope.$on("loginEvent", function(event, obj){
         $scope.jobcoinInputAddress = obj;
     });
 

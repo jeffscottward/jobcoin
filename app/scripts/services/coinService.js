@@ -1,7 +1,7 @@
 'use strict'; // ES5+ JS
 
 // Coin Functionality
-app.service('coinService',['$http', function ($http){
+app.service('coinService',['$http','$stateParams','$rootScope','addressService', function ($http,$stateParams,$rootScope,addressService){
 
   // Verify coin input
   this.checkCointCount = function(coins){
@@ -18,7 +18,8 @@ app.service('coinService',['$http', function ($http){
     
     $http.post('http://jobcoin.projecticeland.net/upspurt/api/transactions', config)
          .success(function (data, status, headers, config){
-            alert('Sent!');
+            console.log('Sent Coins!');
+            $rootScope.$broadcast('sentCoins', addressService.getAddressData($stateParams.jobcoinInputAddress));
          })
          .error(function(data,status,headers,config){
            alert(data.error);
