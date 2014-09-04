@@ -1,8 +1,21 @@
 #JobCoin Sending Interface
 
-######Jobcoins have “addresses” that are just arbitrary strings, and there’s no mining or transaction signing - anyone can create jobcoins out of thin air, or send them between addresses.
+![Alt text](jobcoin-interface.png)
 
--------
+To startup the interface, please have [Nodejs](nodejs.org]), [Bower](http://bower.io/) and [Gulpjs](http://gulpjs.com/) installed on your system. 
+<br/>
+Then in your terminal please issue the following commands:
+
+    $ git clone git@github.com:jeffscottward/jobcoin.git
+    $ npm install && bower install
+    $ gulp serve <br>    
+
+
+## Project Description
+
+
+Jobcoins have “addresses” that are just arbitrary strings, and there’s no mining or transaction signing - anyone can create jobcoins out of thin air, or send them between addresses.
+ 
 
 You can access the Jobcoin management interface and APIs at 
 
