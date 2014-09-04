@@ -8,7 +8,7 @@ Then in your terminal please issue the following commands:
 
     $ git clone git@github.com:jeffscottward/jobcoin.git
     $ npm install && bower install
-    $ gulp serve <br>    
+    $ gulp serve  
 
 
 ## Project Description
