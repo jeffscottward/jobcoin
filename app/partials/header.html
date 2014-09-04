@@ -5,8 +5,8 @@
             <h4>The Currency of the Future</h4>
         </div>
         <div class="col-lg-6">
-            <a class="btn btn-lg btn-info pull-right" ng-href="#" ng-show="appState === 'welcome'" ng-click="signIn(jobcoinInputAddress);">Sign In</a>
-            <a class="btn btn-lg btn-info pull-right" ng-href="#" ng-show="appState === 'loggedIn'" ng-click="signOut()">Sign Out {{jobcoinInputAddress}}</a>
+            <a class="btn btn-lg btn-info pull-right" ng-show="!jobcoinInputAddress" ng-href="#" ng-click="signIn(jobcoinInputAddress)">Sign In</a>
+            <a class="btn btn-lg btn-info pull-right" ng-show="!!jobcoinInputAddress" ng-href="#" ng-click="signOut()">Sign Out {{jobcoinInputAddress}}</a>
         </div>
     </div>
     <hr/>

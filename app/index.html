@@ -21,7 +21,11 @@
       <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
 
-    <div ui-view></div>
+    <div class="container">
+      <header ui-view="header"></header>
+      <div ui-view="container"></div>
+      <footer ui-view="footer"></footer>
+    </div>
 
     <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
     <script>
@@ -51,10 +55,18 @@
     <!-- endbuild -->
 
     <!-- build:js({app,.tmp}) scripts/main.js -->
+
     <script src="scripts/jobcoin.js"></script>
-    <script src="scripts/main/main-ctrl.js"></script>
+    
+    <script src="scripts/controllers/login-ctrl.js"></script>
+    <!-- <script src="scripts/controllers/welcome-ctrl.js"></script> 
+    <script src="scripts/controllers/loggedIn-ctrl.js"></script> -->
+    <script src="scripts/controllers/sending-ctrl.js"></script>
+    <script src="scripts/controllers/chart-ctrl.js"></script>
+
     <script src="scripts/services/addressService.js"></script>
     <script src="scripts/services/coinService.js"></script>
+
     <!-- inject:partials -->
     <!-- endinject -->
     <!-- endbuild -->

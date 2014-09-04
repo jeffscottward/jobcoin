@@ -1,19 +1,5 @@
 <div class="container" ng-controller="MainCtrl">
 
-  <header>
-    <div class="row">
-      <div class="col-lg-6">
-        <h1>Jobcoin</h1>
-        <h4>The Currency of the Future</h4>
-      </div>
-      <div class="col-lg-6">
-        <a class="btn btn-lg btn-info pull-right" ng-href="#" ng-show="appState === 'welcome'" ng-click="signIn(jobcoinInputAddress);">Sign In</a>
-        <a class="btn btn-lg btn-info pull-right" ng-href="#" ng-show="appState === 'loggedIn'" ng-click="signOut()">Sign Out {{jobcoinInputAddress}}</a>
-      </div>
-    </div>
-    <hr/>
-  </header>
-
   <div ng-show="appState === 'welcome'">
     <div class="bs-component">
       <div class="modal">
@@ -126,14 +112,6 @@
         </div>
       </div>
     </div>
-  </div>
-
-  <div class="footer">
-    <hr>
-    <p>
-      <div>Made by Jeff Ward <a href="https://twitter.com/jeffscottward">@jeffscottward</a></div>
-      <div>This code has no license and may not be copied or used in any way by anyone other than the author.</div>
-    </p>
   </div>
 
 </div>
